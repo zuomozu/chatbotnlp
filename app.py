@@ -5,8 +5,8 @@ from transformers import BertTokenizer, EncoderDecoderModel
 app = Flask(__name__)
 
 # Define the paths to your saved model and tokenizer
-model_path = 'results2final2'
-tokenizer_path = 'results2final2'
+model_path = 'model/saved_model'
+tokenizer_path = 'model/saved_model'
 
 # Load the model and tokenizer
 model2 = EncoderDecoderModel.from_pretrained(model_path)
