@@ -1,24 +1,56 @@
 # chatbotnlp
 
-├── chatbot_project/ .
-    ├── app/                   # Flask application files.
-        ├── __init__.py        # Initialize the Flask app.
-        ├── app.py             # Main file to run the app
-    ├── model/                 # Model-related files
-        ├── train_model.py     # Training script
-        ├── evaluate_model.py  # Evaluation script
-        ├── saved_model/       # Trained model (add to .gitignore)
-    ├── static/                # Static files like CSS, JS
-        ├── css/
-            ├── styles.css     # CSS styles for the web app
-    ├── templates/             # HTML files for the web interface
-        ├── index.html         # Main HTML page for the chatbot
-    ├── utils/                 # Helper functions or utility scripts
-        ├── preprocessing.py   # Text preprocessing functions
-    ├── README.md              # Project documentation
-    ├── requirements.txt       # Dependencies for the project
-    ├── .gitignore             # Files to ignore in Git
-    ├── LICENSE                # License for the project
-    ├── Dockerfile             # Docker configuration file
-    ├── app.py                 # Main script to start the Flask app
-    ├── train_model.py         # Training script to fine-tune the model
+# AI  Mental Assist Chatbot using BERT2BERT
+
+This project implements a conversational AI chatbot using the BERT2BERT model. It is fine-tuned on a custom dataset and deployed via a Flask web interface.
+
+## Installation
+
+To set up this project locally, follow the steps below.
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/chatbot_project.git
+    ```
+
+2. Navigate to the project folder:
+    ```bash
+    cd chatbot_project
+    ```
+
+3. Install the dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. (Optional) Run the app in Docker:
+    ```bash
+    docker build -t chatbot .
+    docker run -p 5000:5000 chatbot
+    ```
+
+5. Start the Flask app:
+    ```bash
+    python app.py
+    ```
+
+The application will be running at `http://localhost:5000/`.
+
+
+
+## Usage
+
+Once the application is running, open your browser and navigate to `http://localhost:5000/`. You can start chatting with the bot through the web interface.
+
+Alternatively, to test the model in a script:
+```python
+from transformers import BertTokenizer, EncoderDecoderModel
+
+tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+model = EncoderDecoderModel.from_pretrained('path/to/your/model')
+
+response = chat_with_model("Hello, how are you?", model, tokenizer)
+print(response)
+
+
+    
