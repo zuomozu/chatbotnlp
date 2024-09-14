@@ -46,11 +46,12 @@ Alternatively, to test the model in a script:
 ```python
 from transformers import BertTokenizer, EncoderDecoderModel
 
-tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+tokenizer = BertTokenizer.from_pretrained('path/to/your/model')
 model = EncoderDecoderModel.from_pretrained('path/to/your/model')
 
 response = chat_with_model("I just lost my loved ones, how should I deal with it ", model, tokenizer)
 print(response)
 
+** The model file is too large, hence it was uploaded in parts, combine it and save it as model.safetensor
 
     
