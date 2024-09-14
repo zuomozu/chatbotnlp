@@ -1,8 +1,8 @@
 # chatbotnlp
 
-├── chatbot_project/
-    ├── app/                   # Flask application files
-        ├── __init__.py        # Initialize the Flask app
+├── chatbot_project/ .
+    ├── app/                   # Flask application files.
+        ├── __init__.py        # Initialize the Flask app.
         ├── app.py             # Main file to run the app
     ├── model/                 # Model-related files
         ├── train_model.py     # Training script
