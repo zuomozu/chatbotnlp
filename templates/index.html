@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .chat-container {
+            width: 360px;
+            max-width: 100%;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 80vh;
+            overflow: hidden;
+        }
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 16px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 1px solid #ccc;
+        }
+        .messages {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .message {
+            max-width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            line-height: 1.4;
+            position: relative;
+            animation: fadeIn 0.5s ease-out;
+        }
+        .message.user {
+            background-color: #007bff;
+            color: #fff;
+            align-self: flex-end;
+            border-bottom-right-radius: 0;
+        }
+        .message.model {
+            background-color: #f1f1f1;
+            color: #333;
+            align-self: flex-start;
+            border-bottom-left-radius: 0;
+        }
+        .input-container {
+            display: flex;
+            border-top: 1px solid #ddd;
+            background: #f9f9f9;
+        }
+        .input-container input {
+            flex: 1;
+            padding: 16px;
+            border: none;
+            border-top-left-radius: 8px;
+            outline: none;
+            font-size: 16px;
+        }
+        .input-container button {
+            padding: 16px;
+            border: none;
+            background: #007bff;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            border-top-right-radius: 8px;
+            transition: background 0.3s;
+        }
+        .input-container button:hover {
+            background: #0056b3;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="header">Chatbot</div>
+        <div class="messages" id="messages"></div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const userInput = document.getElementById('user-input').value.trim();
+            if (!userInput) return;
+            document.getElementById('user-input').value = '';
+
+            const userMessage = document.createElement('div');
+            userMessage.classList.add('message', 'user');
+            userMessage.textContent = userInput;
+            document.getElementById('messages').appendChild(userMessage);
+
+            fetch('/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: userInput })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const modelMessage = document.createElement('div');
+                modelMessage.classList.add('message', 'model');
+                modelMessage.textContent = data.response;
+                document.getElementById('messages').appendChild(modelMessage);
+                document.querySelector('.messages').scrollTop = document.querySelector('.messages').scrollHeight;
+            });
+        }
+
+        window.onload = () => document.querySelector('.messages').scrollTop = document.querySelector('.messages').scrollHeight;
+    </script>
+</body>
+</html>
