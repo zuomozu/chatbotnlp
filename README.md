@@ -49,7 +49,7 @@ from transformers import BertTokenizer, EncoderDecoderModel
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 model = EncoderDecoderModel.from_pretrained('path/to/your/model')
 
-response = chat_with_model("Hello, how are you?", model, tokenizer)
+response = chat_with_model("I just lost my loved ones, how should I deal with it ", model, tokenizer)
 print(response)
 
 
