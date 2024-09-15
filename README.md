@@ -51,7 +51,8 @@ model = EncoderDecoderModel.from_pretrained('model/saved_model')
 
 response = chat_with_model("I just lost my loved ones, how should I deal with it ", model, tokenizer)
 print(response)
-
-** The model file is too large, hence it was uploaded in parts, combine it and save it as model.safetensor
 ```
-    ![OUTPUT](Output/Screenshot 2024-09-15 145134.png)
+** The model file is too large, hence it was uploaded in parts, combine it and save it as model.safetensor
+## Output
+
+![OUTPUT](Output/Screenshot 2024-09-15 145134.png)
