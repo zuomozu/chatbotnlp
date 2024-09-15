@@ -53,6 +53,6 @@ response = chat_with_model("I just lost my loved ones, how should I deal with it
 print(response)
 
 ** The model file is too large, hence it was uploaded in parts, combine it and save it as model.safetensor
-
+```
     ![Screenshot 2024-09-15 145134](https://github.com/user-attachments/assets/0492a174-05ff-41b7-9133-2d35706d92ea)
 
