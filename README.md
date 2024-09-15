@@ -54,5 +54,4 @@ print(response)
 ```
 ** The model file is too large, hence it was uploaded in parts, combine it and save it as model.safetensor
 ## Output
-
-![OUTPUT](Output/Screenshot 2024-09-15 145134.png)
+![OUTPUT](https://github.com/zuomozu/chatbotnlp/blob/main/Output/Screenshot%202024-09-15%20145134.png)
