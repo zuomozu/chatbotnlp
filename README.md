@@ -1,8 +1,8 @@
-# chatbotnlp
+# ZUOMOZU: AI Support for Personal Well-being
 
-# AI  Mental Assist Chatbot using BERT2BERT
+# BERT2BERT-Powered AI Chatbot for Enhancing Well-being and Emotional Balance
 
-This project implements a conversational AI chatbot using the BERT2BERT model. It is fine-tuned on a custom dataset and deployed via a Flask web interface.
+This project implements a conversational AI chatbot using the BERT2BERT model, fine-tuned on a custom dataset of chat history between humans and AI-psychiatrists. The chatbot is deployed via a Flask web interface for seamless interaction.
 
 ## Installation
 
